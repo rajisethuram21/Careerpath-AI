@@ -1,0 +1,5 @@
+{% extends "base.html" %}{% block body %}<h1>Rate your skills</h1>
+<p>Choose 0 if you have not used the skill and 5 if you are confident. Be honest: the results depend on it.</p>
+<form class="card" method="post">{% for s in skills %}<label>{{ s }}: <output id="o{{ loop.index }}">{{ saved.get(s, 0) }}</output>
+<input type="range" min="0" max="5" name="{{ s }}" value="{{ saved.get(s, 0) }}" oninput="document.getElementById('o{{ loop.index }}').value=this.value"></label>{% endfor %}
+<button>See my career matches</button></form>{% endblock %}

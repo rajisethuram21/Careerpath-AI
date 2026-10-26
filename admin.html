@@ -1,0 +1,13 @@
+{% extends "base.html" %}{% block body %}<h1>Admin</h1>
+<section class="card"><h2>Recommendation report</h2><table><tr><th>Career</th><th>Times recommended</th><th>Average score</th></tr>
+{% for r in reports %}<tr><td>{{ r.career_name }}</td><td>{{ r.n }}</td><td>{{ r.avg_score }}%</td></tr>{% endfor %}</table></section>
+<section class="card"><h2>Students ({{ students|length }})</h2><table><tr><th>Name</th><th>Email</th><th>Degree</th></tr>
+{% for s in students %}<tr><td>{{ s.name }}</td><td>{{ s.email }}</td><td>{{ s.degree }}</td></tr>{% endfor %}</table></section>
+<section class="card"><h2>Careers</h2><table>{% for c in careers %}<tr><td>{{ c.career_name }}</td><td>{{ c.required_skills }}</td>
+<td><form method="post"><input type="hidden" name="kind" value="delete_career"><input type="hidden" name="id" value="{{ c.career_id }}"><button class="del">Delete</button></form></td></tr>{% endfor %}</table>
+<form method="post"><input type="hidden" name="kind" value="career"><label>Career name<input name="career_name" required></label>
+<label>Description<textarea name="description"></textarea></label><label>Required skills (comma separated)<input name="required_skills" required></label><button>Add career</button></form></section>
+<section class="card"><h2>Courses</h2><table>{% for c in courses %}<tr><td>{{ c.course_name }}</td><td>{{ c.skill_name }}</td>
+<td><form method="post"><input type="hidden" name="kind" value="delete_course"><input type="hidden" name="id" value="{{ c.course_id }}"><button class="del">Delete</button></form></td></tr>{% endfor %}</table>
+<form method="post"><input type="hidden" name="kind" value="course"><label>Course name<input name="course_name" required></label>
+<label>Skill it teaches<input name="skill_name" required></label><label>Course link<input type="url" name="course_url"></label><button>Add course</button></form></section>{% endblock %}

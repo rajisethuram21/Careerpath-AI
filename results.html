@@ -1,0 +1,8 @@
+{% extends "base.html" %}{% block body %}<h1>Your career matches</h1>
+<p>Score = average of your ratings (out of 5) across the skills a career needs. Skills rated below 3 are listed as gaps.</p>
+{% for r in ranked %}<section class="card"><div class="row"><h2>{{ r.career_name }}</h2><span class="score">{{ r.score }}%</span></div>
+<div class="bar"><i style="width:{{ r.score }}%"></i></div><p>{{ r.description }}</p>
+<p>Needs: {{ r.req | join(', ') }}</p>
+{% if r.gaps %}<p>Skills to build: {% for g in r.gaps %}<span class="tag">{{ g }}</span>{% endfor %}</p>
+<ul>{% for c in r.courses %}<li><a href="{{ c.course_url }}" target="_blank" rel="noopener">{{ c.course_name }}</a> ({{ c.skill_name }})</li>{% endfor %}</ul>
+{% else %}<p>You meet every skill requirement for this role.</p>{% endif %}</section>{% endfor %}{% endblock %}

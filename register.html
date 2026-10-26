@@ -1,0 +1,6 @@
+{% extends "base.html" %}{% block body %}<h1>Create your account</h1>
+<form class="card" method="post" onsubmit="return checkPw()"><label>Full name<input name="name" required></label>
+<label>Email<input type="email" name="email" required></label><label>Degree<input name="degree" value="B.Sc Computer Science"></label>
+<label>Password (6+ characters)<input type="password" id="pw" name="password" minlength="6" required></label>
+<button>Create account</button></form>
+<script>function checkPw(){if(document.getElementById('pw').value.length<6){alert('Password must be at least 6 characters.');return false}return true}</script>{% endblock %}
