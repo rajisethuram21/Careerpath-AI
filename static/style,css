@@ -1,1 +1,22 @@
 /*Careerpath AI styles*/
+:root{--ink:#1d2a44;--bg:#f6f4ef;--card:#fff;--line:#d9d6cc;--accent:#0b6e6e;--warn:#b4472b;--ok:#2f7d4f}
+*{box-sizing:border-box}
+body{margin:0;font-family:"Atkinson Hyperlegible",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.55}
+nav{display:flex;gap:1.2rem;align-items:center;padding:.9rem 1.5rem;background:var(--ink);color:#fff}
+nav b{margin-right:auto;font-size:1.1rem}nav a{color:#fff;text-decoration:none}nav a:hover,a:focus-visible{text-decoration:underline}
+main{max-width:860px;margin:2rem auto;padding:0 1rem}
+h1{font-size:1.9rem;margin:.2rem 0 1rem}h2{font-size:1.25rem}
+.card{background:var(--card);border:1px solid var(--line);border-radius:6px;padding:1.2rem;margin-bottom:1.2rem}
+label{display:block;margin:.8rem 0 .2rem;font-weight:700}
+input,select,textarea{width:100%;padding:.55rem;border:1px solid #9a968a;border-radius:4px;font:inherit}
+button{margin-top:1rem;padding:.6rem 1.2rem;background:var(--accent);color:#fff;border:0;border-radius:4px;font:inherit;font-weight:700;cursor:pointer}
+button.del{background:var(--warn);margin:0;padding:.25rem .6rem}
+.flash{padding:.7rem 1rem;border-radius:4px;margin-bottom:1rem;border-left:5px solid}
+.flash.error{background:#f8e4de;border-color:var(--warn)}.flash.ok{background:#dff0e5;border-color:var(--ok)}
+.bar{height:12px;background:#e8e5db;border-radius:6px;overflow:hidden}.bar i{display:block;height:100%;background:var(--accent)}
+.score{font-size:2rem;font-weight:700;color:var(--accent)}
+.tag{display:inline-block;padding:.1rem .5rem;border-radius:3px;background:#f8e4de;color:var(--warn);margin:.15rem;font-size:.9rem}
+.row{display:flex;justify-content:space-between;align-items:center;gap:1rem}
+table{width:100%;border-collapse:collapse}th,td{text-align:left;padding:.4rem;border-bottom:1px solid var(--line);font-size:.95rem}
+@media(max-width:600px){nav{flex-wrap:wrap}.row{flex-direction:column;align-items:flex-start}}
+
